@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
@@ -11,34 +12,47 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
   </head>
-  <body>
-    <section id="carrinho" 
-    class="fixed top-0 right-[0px] bg-zinc-600 h-screen w-[360px] text-slate-200">
-      <div id="cabecalho-cart"  class="flex justify-between  m-4">
+  <body class="bg-[#fff] flex flex-col">
+    <section
+      id="carrinho"
+      class="fixed top-0 right-[-360px] bg-[#fff] h-screen w-[360px] text-slate-950 z-50 duration-200 border-l border-black p-5 flex flex-col justify-between"
+    >
+      <div id="cabecalho-carrinho" class="flex justify-between m-4">
         <p>Meu carrinho</p>
         <button id="fechar-carrinho">
-          <i class="fa-regular fa-circle-xmark" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-circle-xmark"></i>
         </button>
       </div>
-      <section  id="produtos-carrinho">
-        <p>Camisa</p>
-        <p>Boné</p>
-        <p>Calça Jeans</p>
-        <p  id="preco-total">$200</p>
-        <button class="bg-slate-200 text-slate-900 p-1">Finalizar Compra</button>
+      <section id="produtos-carrinho">
+        <p>Casaci Reto com Lã</p>
+        <p>Jaqueta com Efeito Camurça</p>
       </section>
+      <p id="preco-total">$200</p>
+      <button class="bg-slate-200 text-slate-900 p-1">Finalizar Compra</button>
     </section>
-    <header class="flex shadow-lg	 p-2 justify-between">
-      <img src="./assets/log-ck.png" alt="Logo CK" />
-      <div class="text-slate-200 flex gap-2 items-end  mx-2">
-        <button><i class="fa-solid fa-user" style="color: #000000;"></i></i></button>
-        <button id="abrir-carrinho"><i class="fa-solid fa-cart-shopping" style="color: #000000;"></i></button>
+    <header
+      class="flex bg-[#fff] shadow-xl shadow-slate-400 px-8 py-4 justify-between sticky top-0"
+    >
+      <img
+        class="h-8"
+        src="./assets/log-ck.png"
+        alt="Logo do Magazine Hashtag."
+      />
+      <div class="text-slate-200 flex gap-2 items-end mx-2">
+        <button id="abrir-carrinho" class="mx-2">
+          <i class="fa-solid fa-cart-shopping" style="color: #000000"></i>
+        </button>
+        <button class="mr-2">
+          <i class="fa-regular fa-user" style="color: #000000"></i>
+        </button>
       </div>
     </header>
     <main>
-      <section id="container-produto" class="flex flex-wrap"></section>
+      <section
+        id="container-produto"
+        class="flex flex-wrap p-10 justify-center gap-10"
+      ></section>
     </main>
     <script type="module" src="./script.js"></script>
   </body>
