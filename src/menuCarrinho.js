@@ -1,3 +1,5 @@
+import { catalogo } from "./utlidades";
+
 function abrirCarrinho() {
     document.getElementById("carrinho").classList.add("right-[0px]");
     document.getElementById("carrinho").classList.remove("right-[-360px]");
@@ -16,7 +18,8 @@ function abrirCarrinho() {
     botaoAbrirCarrinho.addEventListener("click", abrirCarrinho);
   }
   
-  export function adicionarAoCarrinho(){
+  export function adicionarAoCarrinho(idProduto){
+    const produto = catalogo.find(p =>p.id === idProduto);
     const containerProdutosCarrinho  = document.getElementById('produtos-carrinho');
     const cartaoProdutoCarrinho = `<article class="flex border-slate-950 p-1  relative">
     <button id="fechar-carrinho"  class="absolute  top-0 right-2">
