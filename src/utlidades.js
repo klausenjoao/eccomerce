@@ -1,6 +1,6 @@
 export const catalogo = [
     {
-        id: 1,
+        id: "1",
         marca: "CalvinKlein",
         nome: "Boné",
         preco: 85,
@@ -8,7 +8,7 @@ export const catalogo = [
         feminino: false,
     },
     {
-      id: 2,
+      id: "2",
       marca: "CalvinKlein",
       nome: "Polo CK",
       preco: 450,
@@ -16,7 +16,7 @@ export const catalogo = [
       feminino: false,
     },
     {
-      id: 3,
+      id: "3",
       marca: "CalvinKlein",
       nome: "Calça Jeans",
       preco: 600,
@@ -24,7 +24,7 @@ export const catalogo = [
       feminino: false,
     },
     {
-      id: 4,
+      id: "4",
       marca: "CalvinKlein",
       nome: "Calça de Sarja",
       preco: 160,
@@ -32,7 +32,7 @@ export const catalogo = [
       feminino: false,
     },
     {
-      id: 5,
+      id: "5",
       marca: "CalvinKlein",
       nome: "Camisa CK",
       preco: 250,
@@ -40,7 +40,7 @@ export const catalogo = [
       feminino: false,
     },
     {
-      id: 6,
+      id: "6",
       marca: "CalvinKlein",
       nome: "Jaqueta CK",
       preco: 990,
@@ -48,7 +48,7 @@ export const catalogo = [
       feminino: false,
     },
     {
-      id: 7,
+      id: "7",
       marca: "CalvinKlein",
       nome: "Mochila CK",
       preco: 890,
@@ -56,7 +56,7 @@ export const catalogo = [
       feminino: false,
     },
     {
-      id: 8,
+      id: "8",
       marca: "CalvinKlein",
       nome: "Paletó CK",
       preco: 1490,
