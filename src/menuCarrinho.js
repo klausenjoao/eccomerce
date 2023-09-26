@@ -20,8 +20,9 @@ export function inicializarCarrinho() {
   botaoAbrirCarrinho.addEventListener("click", abrirCarrinho);
 }
 
-function removerDoCarrinho(idProduto){
-  delete  idsProdutoCarrinhoComQuantidade[idProduto];
+function removerDoCarrinho(idProduto) {
+  delete idsProdutoCarrinhoComQuantidade[idProduto];
+  renderizarProdutosCarrinho();
 }
 
 function incrementarQuantidadeProduto(idProduto) {
@@ -30,6 +31,10 @@ function incrementarQuantidadeProduto(idProduto) {
 }
 
 function decrementarQuantidadeProduto(idProduto) {
+  if(idsProdutoCarrinhoComQuantidade[idProduto]=== 1){
+    removerDoCarrinho(idProduto);
+    return
+  }
   idsProdutoCarrinhoComQuantidade[idProduto]--;
   atualizarInformacaoQuantidade(idProduto);
 }
@@ -39,13 +44,7 @@ function atualizarInformacaoQuantidade(idProduto) {
     idsProdutoCarrinhoComQuantidade[idProduto];
 }
 
-export function adicionarAoCarrinho(idProduto) {
-  if (idProduto in idsProdutoCarrinhoComQuantidade) {
-    incrementarQuantidadeProduto(idProduto);
-    return;
-  } else {
-  }
-  idsProdutoCarrinhoComQuantidade[idProduto] = 1;
+function desenharProdutoNoCarrinho(idProduto) {
   const produto = catalogo.find((p) => p.id === idProduto);
   const containerProdutosCarrinho =
     document.getElementById("produtos-carrinho");
@@ -64,7 +63,7 @@ export function adicionarAoCarrinho(idProduto) {
     elementoArticle.classList.add(articleClass);
   }
 
-  const cartaoProdutoCarrinho = `<button id="fechar-carrinho"  class="absolute  top-0 right-2">
+  const cartaoProdutoCarrinho = `<button id="remover-item-${produto.id}"  class="absolute  top-0 right-2">
       <i class="fa-solid fa-trash text-slate-500 hover:text-slate-800"></i>
     </button>
     <img
@@ -78,9 +77,8 @@ export function adicionarAoCarrinho(idProduto) {
     </div>
     <div class='flex text-slate-950 items-end absolute bottom-0 right-2 text-lg'>
       <button id='decrementar-produto-${produto.id}' class=''>-</button>
-      <p id='quantidade-${produto.id}' class='ml-2'>${
-    idsProdutoCarrinhoComQuantidade[produto.id]
-  }
+      <p id='quantidade-${produto.id}' class='ml-2'>${idsProdutoCarrinhoComQuantidade[produto.id]
+    }
       </p>
       <button id='incrementar-produto-${produto.id}'  class='ml-2'>+</button>
     </div>`;
@@ -94,4 +92,28 @@ export function adicionarAoCarrinho(idProduto) {
   document
     .getElementById(`incrementar-produto-${produto.id}`)
     .addEventListener("click", () => incrementarQuantidadeProduto(idProduto));
+
+    document
+    .getElementById(`remover-item-${produto.id}`)
+    .addEventListener("click", () => removerDoCarrinho(idProduto));
+}
+
+function renderizarProdutosCarrinho() {
+  const containerProdutosCarrinho =
+    document.getElementById("produtos-carrinho");
+  containerProdutosCarrinho.innerHTML = "";
+  for (const idProduto in idsProdutoCarrinhoComQuantidade) {
+    desenharProdutoNoCarrinho(idProduto);
+  }
+
+}
+
+export function adicionarAoCarrinho(idProduto) {
+  if (idProduto in idsProdutoCarrinhoComQuantidade) {
+    incrementarQuantidadeProduto(idProduto);
+    return;
+  } else {
+  }
+  idsProdutoCarrinhoComQuantidade[idProduto] = 1;
+  desenharProdutoNoCarrinho(idProduto);
 }
