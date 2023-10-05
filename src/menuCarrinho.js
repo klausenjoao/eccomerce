@@ -1,6 +1,6 @@
-import { catalogo, salvarLocalStorage } from "./utlidades";
+import { catalogo, salvarLocalStorage, lerLocalStorage} from "./utlidades";
 
-const idsProdutoCarrinhoComQuantidade = {};
+const idsProdutoCarrinhoComQuantidade = lerLocalStorage('carrinho') ??{};
 
 function abrirCarrinho() {
   document.getElementById("carrinho").classList.add("right-[0px]");
@@ -104,7 +104,7 @@ function desenharProdutoNoCarrinho(idProduto) {
     .addEventListener("click", () => removerDoCarrinho(idProduto));
 }
 
-function renderizarProdutosCarrinho() {
+export function renderizarProdutosCarrinho() {
   const containerProdutosCarrinho =
     document.getElementById("produtos-carrinho");
   containerProdutosCarrinho.innerHTML = "";
@@ -126,7 +126,7 @@ export function adicionarAoCarrinho(idProduto) {
   atualizarPrecoCarrinho();
 }
 
-function atualizarPrecoCarrinho(){
+export function atualizarPrecoCarrinho(){
   const precoCarrinho = document.getElementById("preco-total");
   let precoTotalCarrinho = 0;
   for(const idProdutoNocarrinho in idsProdutoCarrinhoComQuantidade){
