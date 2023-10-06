@@ -58,9 +58,9 @@ function desenharProdutoNoCarrinho(idProduto) {
   const elementoArticle = document.createElement("article");
   const articleClasses = [
     "flex",
-    "border-slate-950",
     "p-1",
     "relative",
+    "border-slate-950",
     "border",
     "border-black",
   ];
