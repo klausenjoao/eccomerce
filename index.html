@@ -24,13 +24,19 @@
           <i class="fa-solid fa-circle-xmark"></i>
         </button>
       </div>
-      <section id="produtos-carrinho" class="h-3/5 overflow-y-auto flex flex-col gap-2">
-      </section>
-      <p id="preco-total" class="bg-slate-200 text-green-800 rounded-sm pl-5">Total: $0 </p>
-      <button class="text-white	bg-slate-900 hover:bg-slate-800 p-1">Finalizar Compra</button>
+      <section
+        id="produtos-carrinho"
+        class="h-3/5 overflow-y-auto flex flex-col gap-2"
+      ></section>
+      <p id="preco-total" class="bg-slate-200 text-green-800 rounded-sm pl-5">
+        Total: $0
+      </p>
+      <button class="text-white bg-slate-900 hover:bg-slate-800 p-1">
+        Finalizar Compra
+      </button>
     </section>
     <header
-      class="flex bg-[#fff] shadow-xl shadow-slate-400 px-8 py-4 justify-between sticky top-0 z-10"
+      class="flex bg-[#fff] shadow-md shadow-slate-350 px-8 py-4 justify-between sticky top-0 z-10"
     >
       <img
         class="h-8"
@@ -46,10 +52,54 @@
         </button>
       </div>
     </header>
-    <main>
+    <main class="flex flex-col items-center">
+      <section id="filtros" class="p-10 flex">
+        <div class="px-2">
+          <input
+            id="exibir-todos"
+            type="radio"
+            name="filtro"
+            class="peer hidden"
+            checked
+          />
+          <label
+            for="exibir-todos"
+            class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold p-2 rounded-xl select-none cursor-pointer"
+            >Todos</label
+          >
+        </div>
+
+        <div class="px-2">
+          <input
+            id="exibir-masculinos"
+            type="radio"
+            name="filtro"
+            class="peer hidden"
+          />
+          <label
+            for="exibir-masculinos"
+            class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold p-2 rounded-xl select-none cursor-pointer"
+            >Masculinos</label
+          >
+        </div>
+
+        <div class="px-2">
+          <input
+            id="exibir-femininos"
+            type="radio"
+            name="filtro"
+            class="peer hidden"
+          />
+          <label
+            for="exibir-femininos"
+            class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold p-2 rounded-xl select-none cursor-pointer"
+            >Feminos</label
+          >
+        </div>
+      </section>
       <section
         id="container-produto"
-        class="flex flex-wrap p-10 justify-center gap-10 border-slate-500	"
+        class="flex flex-wrap p-10 justify-center gap-10 border-slate-500"
       ></section>
     </main>
     <script type="module" src="./script.js"></script>

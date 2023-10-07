@@ -61,7 +61,16 @@ export const catalogo = [
       nome: "Paletó CK",
       preco: 1490,
       imagem: "paleto.png",
-      feminino: true,
+      feminino: false,
+    },
+
+    {
+      id: "8",
+      marca: "CalvinKlein",
+      nome: "Camiseta Feminina",
+      preco: 1490,
+      imagem: "camisaFeminina.png",
+      feminino: true
     },
   ];
 
