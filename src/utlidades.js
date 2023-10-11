@@ -65,7 +65,7 @@ export const catalogo = [
     },
 
     {
-      id: "8",
+      id: "9",
       marca: "CalvinKlein",
       nome: "Camiseta Feminina",
       preco: 1490,
