@@ -82,6 +82,10 @@ export function lerLocalStorage(chave, informacao) {
   return JSON.parse(localStorage.getItem(chave));
 }
 
+export function apagarDoLocalStorage(chave){
+  localStorage.removeItem(chave);
+}
+
 export function desenharProdutoCarrinhoSimples(
   idProduto,
   idContainerHtml,

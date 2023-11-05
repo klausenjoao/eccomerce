@@ -1,7 +1,12 @@
-import { desenharProdutoCarrinhoSimples, lerLocalStorage} from "./utlidades";
+import {
+  desenharProdutoCarrinhoSimples,
+  lerLocalStorage,
+  apagarDoLocalStorage,
+  salvarLocalStorage,
+} from "./utlidades";
 
 function desenharProdutosCheckout() {
-  const idsProdutoCarrinhoComQuantidade = lerLocalStorage("carrinho");
+  const idsProdutoCarrinhoComQuantidade = lerLocalStorage("carrinho") ?? {};
   for (const idProduto in idsProdutoCarrinhoComQuantidade) {
     desenharProdutoCarrinhoSimples(
       idProduto,
@@ -11,4 +16,27 @@ function desenharProdutosCheckout() {
   }
 }
 
+function finalizarCompra(evento) {
+  evento.preventDefault();
+  const idsProdutoCarrinhoComQuantidade = lerLocalStorage("carrinho") ?? {};
+  if (Object.keys(idsProdutoCarrinhoComQuantidade).length === 0) {
+    return;
+  }
+
+  const dataAtual = new Date();
+  const pedidoFeito = {
+    dataPedido: dataAtual,
+    pedido: idsProdutoCarrinhoComQuantidade,
+  }
+
+  const historicoDePedidos = lerLocalStorage("historico") ?? [];
+  const historicoDePedidosAtualizado = [pedidoFeito, ...historicoDePedidos];
+
+  apagarDoLocalStorage("carrinho");
+
+  window.location.href = window.location.origin + "/pedidos.html";
+}
+
 desenharProdutosCheckout();
+
+document.addEventListener("submit", (evt) => finalizarCompra(evt));
