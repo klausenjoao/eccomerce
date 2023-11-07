@@ -32,6 +32,7 @@ function finalizarCompra(evento) {
   const historicoDePedidos = lerLocalStorage("historico") ?? [];
   const historicoDePedidosAtualizado = [pedidoFeito, ...historicoDePedidos];
 
+  salvarLocalStorage('historico', historicoDePedidosAtualizado);
   apagarDoLocalStorage("carrinho");
 
   window.location.href = window.location.origin + "/pedidos.html";

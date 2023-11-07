@@ -102,7 +102,8 @@ export function desenharProdutoCarrinhoSimples(
     "border-slate-950",
     "border",
     "border-black",
-    "mb-2"
+    "mb-2",
+    "w-96",
   ];
 
   for (const articleClass of articleClasses) {
